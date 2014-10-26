@@ -1,0 +1,24 @@
+ProgrammingAssignment2
+======================
+makeCacheMatrix <- function(x=matrix()) {
+    m <- NULL
+    get <- function() x
+    setImatrix <- function(Imatrix) m <<- Imatrix
+    getImatrix <- function() m
+    list(get=get, setImatrix=setImatrix, getImatrix=getImatrix)
+}
+cacheSolve <- function(x) {
+    m <- x$getImatrix()
+    if(!is.null(m)){
+        message("Cached data found")
+        return(m)
+    }
+    else {
+        message("Cached data not found")
+        data <- x$get() 
+        m <- solve(data) 
+        x$setImatrix(m) 
+        message("Completed.")
+        return(m)
+    }
+}
