@@ -18,7 +18,7 @@ cacheSolve <- function(x) {
         data <- x$get() 
         m <- solve(data) 
         x$setImatrix(m) 
-        message("Completed.")
+        message("Completed")
         return(m)
     }
 }
